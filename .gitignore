@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.env
+
+# Notebook artifacts
+.ipynb_checkpoints/
+
+# Test/build outputs
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Generated output artifacts
+data/output/*
+!data/output/charts/
+!data/output/charts/.gitkeep
+!data/output/.gitkeep
