@@ -48,7 +48,7 @@ python run_report.py --input data/input/my_retail.csv --output data/output
 retail-reporting-automation/
   data/input/          # input CSVs (fake data generated on demand)
   data/output/         # Excel, PowerPoint, charts
-  docs/                # architecture + LinkedIn writeup
+  docs/                # architecture notes
   src/                 # pipeline, loaders, exports, viz
   tests/               # smoke tests
   run_report.py        # CLI entrypoint
