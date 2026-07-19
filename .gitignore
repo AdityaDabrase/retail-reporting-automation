@@ -21,11 +21,10 @@ build/
 .vscode/
 .idea/
 
-# Generated output artifacts
-data/output/*
-!data/output/charts/
-!data/output/charts/.gitkeep
-!data/output/.gitkeep
 
-# Keep sample charts for README
+
+# Generated outputs — keep sample charts for README
+data/output/*
+!data/output/.gitkeep
+!data/output/charts/
 !data/output/charts/**
