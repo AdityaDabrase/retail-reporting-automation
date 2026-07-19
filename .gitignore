@@ -26,3 +26,6 @@ data/output/*
 !data/output/charts/
 !data/output/charts/.gitkeep
 !data/output/.gitkeep
+
+# Keep sample charts for README
+!data/output/charts/**

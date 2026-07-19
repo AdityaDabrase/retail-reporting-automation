@@ -1,43 +1,20 @@
-# Retail Reporting Automation MVP
+# Retail Reporting Automation
 
-Python-only project that turns retail CSV data into:
-- cleaned analysis-ready datasets,
-- KPI tables and charts,
-- editable Excel reports (`.xlsx`),
-- editable PowerPoint decks (`.pptx`).
+Python pipeline for analysts and operators who need **repeatable retail KPI packs** — cleaned data, charts, an Excel workbook, and a PowerPoint deck — without manual spreadsheet busywork.
 
-This project includes fake data generation so you can test end-to-end immediately.
+## Problem → approach → result
 
-## Project structure
+| | |
+| --- | --- |
+| **Problem** | Weekly retail reporting is slow, error-prone, and hard to reproduce when it lives only in Excel. |
+| **Approach** | A deterministic Python pipeline: load/validate CSV → transform → compute insights → export charts, `.xlsx`, and `.pptx`. Fake data generation is built in so the full path runs with no private data. |
+| **Result** | One command produces `report.xlsx`, `report.pptx`, and chart PNGs under `data/output/`. |
 
-```text
-retail-reporting-automation/
-  data/
-    input/
-    output/
-  docs/
-    ARCHITECTURE.md
-    LINKEDIN_POST.md
-  src/
-    app/
-      config.py
-      pipeline.py
-    cli/
-      main.py
-    data/
-      fake_data.py
-      loader.py
-      quality.py
-      transform.py
-      insights.py
-    export/
-      excel_writer.py
-      ppt_writer.py
-    viz/
-      charts.py
-  requirements.txt
-  run_report.py
-```
+![Monthly revenue trend sample](data/output/charts/monthly_revenue_trend.png)
+
+## Stack
+
+Python · pandas · openpyxl / xlsxwriter · python-pptx · matplotlib
 
 ## Quick start
 
@@ -51,28 +28,46 @@ python run_report.py --force-generate
 ## Outputs
 
 After execution, check:
-- `data/input/retail.csv` (generated if missing or forced),
-- `data/output/report.xlsx`,
-- `data/output/report.pptx`,
-- `data/output/charts/*.png`.
+
+- `data/input/retail.csv` (generated if missing or forced)
+- `data/output/report.xlsx`
+- `data/output/report.pptx`
+- `data/output/charts/*.png`
 
 ## Use your own dataset
 
-Your CSV should include these columns:
-- `date`
-- `region`
-- `category`
-- `product`
-- `units`
-- `revenue`
-
-Run:
+Your CSV should include: `date`, `region`, `category`, `product`, `units`, `revenue`.
 
 ```bash
 python run_report.py --input data/input/my_retail.csv --output data/output
 ```
 
-## AI direction
+## Repo layout
 
-The current MVP generates deterministic, rule-based insights.  
-You can later plug in an LLM for narrative generation while keeping metrics computed by Python.
+```text
+retail-reporting-automation/
+  data/input/          # input CSVs (fake data generated on demand)
+  data/output/         # Excel, PowerPoint, charts
+  docs/                # architecture + LinkedIn writeup
+  src/                 # pipeline, loaders, exports, viz
+  tests/               # smoke tests
+  run_report.py        # CLI entrypoint
+  requirements.txt
+```
+
+See also: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## Tests
+
+```bash
+pip install pytest
+python -m pytest tests/ -q
+```
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).
+
+## Contact
+
+[LinkedIn](https://www.linkedin.com/in/adityadabrase/) · [dabrase.a@gmail.com](mailto:dabrase.a@gmail.com)
