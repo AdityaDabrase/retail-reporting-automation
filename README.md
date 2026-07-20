@@ -14,7 +14,7 @@ Python pipeline for analysts and operators who need **repeatable retail KPI pack
 
 ## Stack
 
-Python · pandas · openpyxl / xlsxwriter · python-pptx · matplotlib
+Python · pandas · xlsxwriter · python-pptx · matplotlib
 
 ## Quick start
 
@@ -48,7 +48,7 @@ python run_report.py --input data/input/my_retail.csv --output data/output
 retail-reporting-automation/
   data/input/          # input CSVs (fake data generated on demand)
   data/output/         # Excel, PowerPoint, charts
-  docs/                # architecture notes
+  docs/                # architecture + LinkedIn writeup
   src/                 # pipeline, loaders, exports, viz
   tests/               # smoke tests
   run_report.py        # CLI entrypoint
